@@ -54,6 +54,7 @@ ui <- fluidPage(
                              ), 
                              splitLayout(
                                checkboxInput("randomise", label = "Randomise Samples", value = FALSE),
+                               checkboxInput("development", label = "Development without storage to server", value = FALSE),
                                checkboxInput("full.Set", label = "Full Set of Standards", value = FALSE),
                                downloadButton("downloadData", "Download"))
                            ),

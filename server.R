@@ -40,8 +40,12 @@ server <- function(input, output, session) {
       temp = read_csv(input$file1$datapath)
       if(all(c("Sample Name", "Sample Position")%in%colnames(temp))){
         temp = make.WL(filename = input$file1$datapath,
-                       sample.path = file.path("D:","MassHunter","Data",input$FolderName,fsep = "\\"),
-                       sample.prefix = paste(format(Sys.time(), "%Y%m%d"),"TQ1",input$User,"runningID",input$FolderName,sep = "_"),
+                       sample.path = ifelse(input$development == F,
+                                            file.path("D:","MassHunter","Data",input$FolderName,fsep = "\\"),
+                                            file.path("D:","MassHunter","Data-Development",input$User,input$FolderName,fsep = "\\")),
+                       sample.prefix = ifelse(input$development == F,
+                                              paste(format(Sys.time(), "%Y%m%d"),"TQ1",input$User,"runningID",input$FolderName,sep = "_"),
+                                              paste(format(Sys.time(), "%Y%m%d"),"TQ1",input$User,sep = "_")),
                        method.path = Methods[[input$selectMethod]]$WL.fun[["method.path"]],
                        eq.method = Methods[[input$selectMethod]]$WL.fun[["eq.method"]],
                        eq.MRM = Methods[[input$selectMethod]]$WL.fun[["eq.MRM"]],
@@ -53,7 +57,9 @@ server <- function(input, output, session) {
                        nSTD = as.numeric(input$Standards),
                        brackets = as.numeric(input$Brackets),
                        randomise = input$randomise,
+                       development = input$development,
                        full.Set = input$full.Set)
+        
         return(temp)}else{
           return(data_frame("Warning: Check column headers " = ""))
         }

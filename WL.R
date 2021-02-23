@@ -14,7 +14,8 @@ make.WL = function(filename = NULL,
                    nSTD = NULL,
                    splitWash = NULL,
                    full.Set = F,
-                   brackets = NULL){
+                   brackets = NULL,
+                   development = NULL){
   if(is.null(filename)&is.null(data)){stop("no filename or data specified!")}
   if(is.null(filename)){
     sample.info = data%>%
