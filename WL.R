@@ -40,6 +40,16 @@ make.WL = function(filename = NULL,
   
   if(is.null(nSTD)|is.na(nSTD)|nSTD==0){
     WL = WL.samples
+    
+    
+    WL = WL %>%
+      dplyr::group_by(`Sample Name`) %>%
+      dplyr::mutate(#`Sample Name` = paste(`Sample Name`,sprintf("r%02d",1:length(`Sample Name`)),sep = "-"),
+        `Data File` = file.path(sample.path,paste(sample.prefix,
+                                                  paste(`Sample Name`,sprintf("r%02d",1:length(`Sample Name`)),sep = "-"),
+                                                  sep = "_"),fsep = "\\")) %>%
+      dplyr::ungroup()
+    
   }else{
     
     WL.eq = data_frame(`Sample Name` = c("eq",
@@ -116,8 +126,10 @@ make.WL = function(filename = NULL,
     
     WL = WL %>%
       dplyr::group_by(`Sample Name`) %>%
-      dplyr::mutate(`Sample Name` = paste(`Sample Name`,sprintf("r%02d",1:length(`Sample Name`)),sep = "-"),
-                    `Data File` = file.path(sample.path,paste(sample.prefix,`Sample Name`,sep = "_"),fsep = "\\")) %>%
+      dplyr::mutate(#`Sample Name` = paste(`Sample Name`,sprintf("r%02d",1:length(`Sample Name`)),sep = "-"),
+                    `Data File` = file.path(sample.path,paste(sample.prefix,
+                                                              paste(`Sample Name`,sprintf("r%02d",1:length(`Sample Name`)),sep = "-"),
+                                                              sep = "_"),fsep = "\\")) %>%
       dplyr::ungroup()
     
   }
