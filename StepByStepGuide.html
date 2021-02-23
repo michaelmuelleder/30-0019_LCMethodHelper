@@ -1,0 +1,152 @@
+<h1><span style="font-weight: 400;">Step-by-step guide to setup the method!</span></h1>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">There are several SOP methods for the analysis of free amino acids, nucleosides and more general methods for polar metabolites either by IP-RP HPCL or by HILIC.</span></p>
+<p><span style="font-weight: 400;">At the moment we aim not to use ion pairs and try to do all analysis either by RP or HILIC.</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Although the previous person should have cleaned, do what is necessary and take responsibility for your own analysis.</span></p>
+<h2><span style="font-weight: 400;">Preparation</span></h2>
+<ul>
+<li style="font-weight: 400;"><strong>Prepare worklist</strong><span style="font-weight: 400;"> This should be a *.csv File with 2 columns:</span><span style="font-weight: 400;"><br /><br /></span></li>
+</ul>
+<table style="width: 180px;">
+<tbody>
+<tr>
+<td style="width: 400px;">
+<p><strong>Sample Name</strong></p>
+</td>
+<td style="width: 87px;">
+<p><strong>Sample Position</strong></p>
+</td>
+</tr>
+<tr>
+<td style="width: 400px;">
+<p><span style="font-weight: 400;">WT-100H2O2-30sec-r1</span></p>
+</td>
+<td style="width: 87px;">
+<p><span style="font-weight: 400;">P1-A1</span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 400px;">
+<p><span style="font-weight: 400;">MUT-100H2O2-30sec-r1</span></p>
+</td>
+<td style="width: 87px;">
+<p><span style="font-weight: 400;">P1-A2</span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 400px;">
+<p><span style="font-weight: 400;">...</span></p>
+</td>
+<td style="width: 87px;">
+<p><span style="font-weight: 400;">...</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">All sample names have to be unique! No underscores are allowed in the sample name!</span></p>
+<ul>
+<li style="font-weight: 400;"><strong>Start</strong> <strong><em>LC-MS/MS-Helper</em></strong> <strong>app</strong><span style="font-weight: 400;"> The app will calculate the required volumes of buffers. Alternatively you can calculate the volumes for a given number of samples. Always state an additional volume to allow for purging, repetition of samples and other problems.</span></li>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Select the acquisition method and load the worklist. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Go to </span><em><span style="font-weight: 400;">Worklist4Masshunter</span></em></li>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">add the number of standards for external calibration </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">select the version of the method you want to use. Sometimes there is the option to include the transitions for 13C-labelled internal standards.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Specify the location where the data will be saved</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Download the worklist file</span></li>
+</ul>
+</ul>
+</ul>
+<ul>
+<li style="font-weight: 400;"><strong>Start Masshunter Acquisition</strong><span style="font-weight: 400;"> software</span></li>
+<li style="font-weight: 400;"><strong>Import Worklist</strong></li>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Navigate to the worklist panel and clear previous samples</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Right click on top left corner and import the previously generated worklist *.csv file. Accept the creation of a new folder. If not already in the table, add Dilution and Injection Volume. Set injection volume to "As method" and the Dilution to 1 of the first sample. Right click the respective box and "Fill Column".</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Right click on the top left corner. </span><em><span style="font-weight: 400;">Here the details for the standby</span></em></li>
+</ul>
+</ul>
+<ul>
+<li style="font-weight: 400;"><strong>Select method</strong><span style="font-weight: 400;"> of choice</span></li>
+<li style="font-weight: 400;"><strong>Autosampler</strong></li>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Check if there are still samples from previous person, transfer to fridge in common area and inform responsible person.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Set the format of the plates, e.g. to 54 Vials or 384 MTP</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Switch on the cooling unit</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Check collected condensed water below the LC, empty if necessary.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Same for waste bottle. Add relevant stickers and labels and install a new bottle.</span></li>
+</ul>
+</ul>
+<h2><span style="font-weight: 400;">LC</span></h2>
+<ul>
+<li style="font-weight: 400;"><strong>Remove column</strong><span style="font-weight: 400;"> if still present and connect lines with the 0-volume connector</span></li>
+<li style="font-weight: 400;"><strong>Remove solvent bottles</strong><span style="font-weight: 400;"> Take out the solvent lines with filter, rinse with appropriate solvent of spray bottle and place in beaker with clean solvent</span></li>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;"> e.g. change from 0.1% acetic acid to 100 mM ammonium carbonate: rinse with water and place in beaker with water</span></li>
+</ul>
+<li style="font-weight: 400;"><strong>Purge lines</strong><span style="font-weight: 400;"> usually 3 min with 5 ml/min per channel should be sufficient. Include Priming if concerned about bubbles in lines.</span></li>
+<li style="font-weight: 400;"><strong>Flush capillaries</strong></li>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">- Set the low pressure limit to 0 in the method tab and press "apply" or enter (Do not save the method!).</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">- Set the flow/min to 1 ml/min and choose appropriate channel to remove buffer mix present in capillaries (e.g. water). Increase flow as deemed necessary. Monitor the pressure, it should be stable.</span></li>
+</ul>
+<li style="font-weight: 400;"><strong>Install bottles</strong><span style="font-weight: 400;"> with your solvents. Set the solvent counter and volumes appropriately in the Binary Pump panel. </span></li>
+<li style="font-weight: 400;"><strong>Set </strong><span style="font-weight: 400;"> solvent volumes</span></li>
+<li style="font-weight: 400;"><strong>Purge lines</strong><span style="font-weight: 400;"> as before</span></li>
+<li style="font-weight: 400;"><strong>Select method</strong><span style="font-weight: 400;"> of choice and stop flow.</span></li>
+<li style="font-weight: 400;"><strong>Flush capillaries</strong><span style="font-weight: 400;"> as before</span></li>
+<li style="font-weight: 400;"><strong>Check in-line filter</strong><span style="font-weight: 400;"> Change solvent ratio to 80-100% organic solvents. If the pressure is greater 50 bar, then exchange the in-line filter.</span></li>
+<li style="font-weight: 400;"><strong>Install column</strong></li>
+</ul>
+<h2><span style="font-weight: 400;">MS</span></h2>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Assure that the source has cooled down or is cool enough the clean</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">wipe the spray shield with water and with 50% 2-propanol</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">remove the spray shield and wipe the cap of the dielectric capillary </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">reinstall and close the source</span></li>
+</ul>
+<h3><span style="font-weight: 400;">Nebulizer problems</span></h3>
+<p><span style="font-weight: 400;">If signals are poor or precipitation on the nebulizer needle is suspected </span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Put MS into stand-by</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Turn gas flows to minimum</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">remove the nebulizer and gas lines and capillaries</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;"> inspect with the appropriate tools</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;"> place cut pipette tip over nebulizer so the needle that is protruding slightly can't get damaged</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;"> wash in water and 50% 2-propanol</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;"> if not sufficient, assist the cleaning with sonication</span></li>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">CAREFUL with the needle - can get damaged very easily! Do not use any abrasive paper!</span></li>
+</ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Install the nebulizer and reload you method of choice</span></li>
+</ul>
+<h1><span style="font-weight: 400;">Acquisition</span></h1>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;"> Switch on MS/MS and column compartment and wait until ready</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Place your samples in the autosampler</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;"> Load the first method of the worklist. This should either be a equilibration method, or the acquisition method you wanted.</span></li>
+</ul>
+<h2><span style="font-weight: 400;">Final check</span></h2>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Waste bottle</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Solvent counter - stop when running out of solvent min. 50 ml</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Standy-by after worklist is complete</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">any leaks? too low or too high pressure?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;"> line connected to MS? </span></li>
+</ul>
+<h2><span style="font-weight: 400;">Start</span></h2>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Start worklist</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Wait for equilibration and for first standards to run</span></li>
+</ul>
+<h2><span style="font-weight: 400;">Inspect first standards and adjust method</span></h2>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Open qualitative Masshunter analysis software</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Open the standards file</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Run </span><em><span style="font-weight: 400;">Find by MRM</span></em></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Inspect if compounds elute at expected retention times and windows are broad enough</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">If necessary, adjust the acquisition method file </span></li>
+</ul>
+<h1><span style="font-weight: 400;">Data analysis</span></h1>

@@ -1,0 +1,33 @@
+
+R version 3.4.3 (2017-11-30) -- "Kite-Eating Tree"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> require(shiny)
+Loading required package: shiny
+> folder_address = 'C://LCMethodHelper'
+> runApp(folder_address, launch.browser=TRUE)
+
+Listening on http://127.0.0.1:5200
+-- Attaching packages --------------------------------------- tidyverse 1.2.1 --
+v ggplot2 2.2.1     v purrr   0.2.4
+v tibble  1.4.2     v dplyr   0.7.4
+v tidyr   0.8.0     v stringr 1.3.0
+v readr   1.1.1     v forcats 0.3.0
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
