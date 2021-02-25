@@ -8,11 +8,16 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       
+      
+      selectInput("selectTQ", h4("Select TQ-Instrument"), 
+                  choices = c("TQ1-6470","TQ2-6495C"),
+                  selected = 1),
+      
       selectInput("selectMethod", h4("Select Method"), 
                   choices = names(Methods)[!grepl("Buescher",names(Methods))],
                   selected = 1),
       
-      
+  
       fileInput(inputId = "file1", label = h4("Load Worklist"),
                 accept = c(
                   "text/csv",
@@ -56,6 +61,7 @@ ui <- fluidPage(
                                checkboxInput("randomise", label = "Randomise Samples", value = FALSE),
                                checkboxInput("development", label = "Development without storage to server", value = FALSE),
                                checkboxInput("full.Set", label = "Full Set of Standards", value = FALSE),
+                               checkboxInput("equilibrate", label = "Standards for equilibration", value = TRUE),
                                downloadButton("downloadData", "Download"))
                            ),
                            dataTableOutput("WL4MS"))
