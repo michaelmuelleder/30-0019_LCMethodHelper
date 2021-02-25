@@ -41,11 +41,11 @@ server <- function(input, output, session) {
       if(all(c("Sample Name", "Sample Position")%in%colnames(temp))){
         temp = make.WL(filename = input$file1$datapath,
                        sample.path = ifelse(input$development == F,
-                                            file.path("D:","MassHunter","Data",input$FolderName,fsep = "\\"),
+                                            file.path("D:","MassHunter","Data-Projects",input$FolderName,fsep = "\\"),
                                             file.path("D:","MassHunter","Data-Development",input$User,input$FolderName,fsep = "\\")),
                        sample.prefix = ifelse(input$development == F,
-                                              paste(format(Sys.time(), "%Y%m%d"),"TQ1",input$User,"runningID",input$FolderName,sep = "_"),
-                                              paste(format(Sys.time(), "%Y%m%d"),"TQ1",input$User,sep = "_")),
+                                              paste(input$Date,sub("-.*", "", input$selectTQ),input$User,"runningID",input$FolderName,sep = "_"),
+                                              paste(input$Date,sub("-.*", "", input$selectTQ),input$User,sep = "_")),
                        method.path = Methods[[input$selectMethod]]$WL.fun[["method.path"]],
                        eq.method = Methods[[input$selectMethod]]$WL.fun[["eq.method"]],
                        eq.MRM = Methods[[input$selectMethod]]$WL.fun[["eq.MRM"]],
@@ -57,6 +57,7 @@ server <- function(input, output, session) {
                        nSTD = as.numeric(input$Standards),
                        brackets = as.numeric(input$Brackets),
                        randomise = input$randomise,
+                       equilibrate = input$equilibrate,
                        development = input$development,
                        full.Set = input$full.Set)
         
@@ -107,7 +108,7 @@ server <- function(input, output, session) {
   
   output$downloadData <- downloadHandler(
     filename = function() {
-      paste0(Sys.Date(),"_",input$User, ".csv")
+      paste0(format(Sys.time(), "%Y%m%d"),sub("-.*", "", input$selectTQ),input$User, "WL.csv")
     },
     content = function(file) {
       write.csv(tempTable(), file, row.names = FALSE)

@@ -8,11 +8,16 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       
+      
+      selectInput("selectTQ", h4("Select TQ-Instrument"), 
+                  choices = c("TQ1-6470","TQ2-6495C"),
+                  selected = 1),
+      
       selectInput("selectMethod", h4("Select Method"), 
                   choices = names(Methods)[!grepl("Buescher",names(Methods))],
                   selected = 1),
       
-      
+  
       fileInput(inputId = "file1", label = h4("Load Worklist"),
                 accept = c(
                   "text/csv",
@@ -46,16 +51,25 @@ ui <- fluidPage(
                   tabPanel("Worklist4Masshunter", 
                            fluidRow(
                              splitLayout(
-                               selectInput(inputId = "AnaMethod",label = "Analysis Method",choices = NA),
-                               textInput("User", "User Initials",width = "80%", value = "MM"),
+                               textInput("Date", "Acquisition Date",width = "80%",value = format(Sys.time(), "%Y%m%d")),
                                textInput("FolderName", "Project ID",width = "80%",value = "00-0000"),
-                               textInput("Standards", "Nr. of Standards",width = "80%",value = 6),
-                               textInput("Brackets", "Nr. of Brackets",width = "80%",value = 20)
+                               textInput("User", "User Initials",width = "80%", value = "MM")
                              ), 
                              splitLayout(
-                               checkboxInput("randomise", label = "Randomise Samples", value = FALSE),
+                               tags$head(tags$style(HTML(".shiny-split-layout > div {overflow: visible;}"))),
+                                         cellWidths = c("0%","33%", "33%", "33%"),
+                               selectInput(inputId = "AnaMethod",label = "Analysis Method",choices = NA),
+                               textInput("Standards", "Nr. of Standards",width = "80%",value = 6),
+                               textInput("Brackets", "Nr. of Samples before Stds",width = "80%",value = 20)
+                             ), 
+                             splitLayout(
                                checkboxInput("development", label = "Development without storage to server", value = FALSE),
                                checkboxInput("full.Set", label = "Full Set of Standards", value = FALSE),
+                               checkboxInput("equilibrate", label = "Standards for equilibration", value = TRUE)
+                             )
+                             , 
+                             splitLayout(
+                               checkboxInput("randomise", label = "Randomise Samples", value = FALSE),
                                downloadButton("downloadData", "Download"))
                            ),
                            dataTableOutput("WL4MS"))

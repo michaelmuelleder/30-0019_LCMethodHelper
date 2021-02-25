@@ -2,6 +2,7 @@
 make.WL = function(filename = NULL,
                    data = NULL,
                    randomise = NULL,
+                   equilibrate = NULL,
                    sample.path = NULL,
                    sample.prefix = NULL,
                    method.path = NULL,
@@ -53,16 +54,24 @@ make.WL = function(filename = NULL,
     
   }else{
     
-    WL.eq = data_frame(`Sample Name` = c("eq",
-                                         "blank-00",
-                                         sprintf("STD%02d-00",1:nSTD)),
-                       `Sample Position` = c("No Injection",
-                                             sprintf("Vial %d",1:(nSTD+1))),
-                       Method = c(file.path(method.path,eq.method,fsep = "\\"),
-                                  rep(file.path(method.path,eq.MRM,fsep = "\\"),nSTD+1)),
-                       `Data File` = as.character(sapply(paste(sample.prefix,`Sample Name`,sep = "_"), function(x)(file.path(sample.path,x,fsep = "\\")))),
-                       `Sample Type` = c(rep("Blank",2),rep("Calibration",nSTD)),
-                       `Level Name` = c("",1:(nSTD+1)))
+    if(equilibrate == T){
+      WL.eq = data_frame(`Sample Name` = c("eq",
+                                           "blank-00",
+                                           sprintf("STD%02d-00",1:nSTD)),
+                         `Sample Position` = c("No Injection",
+                                               sprintf("Vial %d",1:(nSTD+1))),
+                         Method = c(file.path(method.path,eq.method,fsep = "\\"),
+                                    rep(file.path(method.path,eq.MRM,fsep = "\\"),nSTD+1)),
+                         `Data File` = as.character(sapply(paste(sample.prefix,`Sample Name`,sep = "_"), function(x)(file.path(sample.path,x,fsep = "\\")))),
+                         `Sample Type` = c(rep("Blank",2),rep("Calibration",nSTD)),
+                         `Level Name` = c("",1:(nSTD+1)))
+      
+    }else{
+      
+      WL.eq = NULL
+    }
+    
+
     
     WL.Standards = data_frame(`Sample Name` = c("blank",sprintf("STD%02d",1:nSTD)),
                               `Sample Position` = sprintf("Vial %d",1:(nSTD+1)),
@@ -81,7 +90,7 @@ make.WL = function(filename = NULL,
     if(full.Set == T){
       WL = bind_rows(WL.eq,
                      WL.Standards %>%
-                       dplyr::filter(`Level Name` %in% c(0,nSTD)) %>%
+                       dplyr::filter(`Level Name` %in% c(0:nSTD)) %>%
                        arrange(desc(`Level Name`)),
                      lapply(1:n.std,function(y){
                     
