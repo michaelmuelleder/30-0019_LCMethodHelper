@@ -68,7 +68,7 @@ ui <- fluidPage(
                                checkboxInput("equilibrate", label = "Standards for equilibration", value = TRUE)
                              )
                              , 
-                             splitLayout(
+                             splitLayout(cellWidths = c("66%", "33%"),
                                checkboxInput("randomise", label = "Randomise Samples", value = FALSE),
                                downloadButton("downloadData", "Download"))
                            ),
